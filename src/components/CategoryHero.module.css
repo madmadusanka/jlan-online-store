@@ -1,0 +1,133 @@
+.hero {
+  position: relative;
+  padding: 80px 0 60px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at 30% 20%, rgba(196, 30, 58, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(196, 30, 58, 0.06) 0%, transparent 50%);
+  z-index: 0;
+}
+
+.heroInner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.heroLogo {
+  width: 160px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 30px rgba(196, 30, 58, 0.2));
+  animation: float 4s ease-in-out infinite;
+  mix-blend-mode: multiply;
+  transform: scale(1.5);
+}
+
+.heroContent {
+  flex: 1;
+}
+
+.heroBreadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 12px;
+}
+
+.heroBreadcrumb a {
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.heroBreadcrumb a:hover {
+  color: var(--color-primary-light);
+}
+
+.heroTitle {
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-text-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroTitleAccent {
+  -webkit-text-fill-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.heroDescription {
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+.heroStats {
+  display: flex;
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.heroStat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.heroStatValue {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-primary-light);
+}
+
+.heroStatLabel {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@media (max-width: 768px) {
+  .heroInner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .heroLogo {
+    width: 120px;
+  }
+
+  .heroDescription {
+    margin: 0 auto;
+  }
+
+  .heroStats {
+    justify-content: center;
+  }
+}
